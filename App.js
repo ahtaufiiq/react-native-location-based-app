@@ -6,10 +6,11 @@ import Results from './components/Results.js'
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-  
+
     this.state = {
       page: 'home',
-      title: 'App Malam Ini'
+      title: 'App Malam Ini',
+      myLocation:{}
     };
   }
 
@@ -18,15 +19,19 @@ export default class App extends React.Component {
       this.setState({page: 'home'})
       //this.state = {page: 'home'}
     } else if (this.state.page == 'home') {
-      this.setState({page: 'results'}) 
+      this.setState({page: 'results'})
     }
   }
+
+  saveLocationToState(data) {
+        this.setState({myLocation: data})
+    }
 
   render() {
     return (
       <View>
         <Text>{this.state.title}</Text>
-        {this.state.page == 'home' && <Home textnya='Dari induk' page={this.pindahHalaman.bind(this)}/>}
+        {this.state.page == 'home' && <Home myLocation={this.saveLocationToState.bind(this)} />}
         {this.state.page == 'results' && <Results page={this.pindahHalaman.bind(this)}/>}
       </View>
     );
