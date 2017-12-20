@@ -5,15 +5,6 @@ import AddLocation from './AddLocation.js'
 
 export default class Home extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      page: 'home',
-      title: 'App Malam Ini',
-      myLocation:{}
-    };
-  }
 
   goToResults() {
     this.props.page()
@@ -30,13 +21,13 @@ export default class Home extends React.Component {
   render() {
     return (
       <View>
-        <GetMyLocation myLocation={this.saveToAppState.bind(this)}/>
-        <AddLocation data={this.handleTextInput.bind(this)} />
-        <Button
-          onPress={this.goToResults.bind(this)}
-          title='Go to Results'
-        />
-      </View>
+       <GetMyLocation myLocation={this.saveToAppState.bind(this)} />
+       <AddLocation data={this.handleTextInput.bind(this)} />
+       <Button
+         onPress={this.goToResults.bind(this)}
+         title='Go to Results'
+       />
+     </View>
     );
   }
 }

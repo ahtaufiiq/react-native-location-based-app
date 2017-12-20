@@ -31,7 +31,7 @@ export default class App extends React.Component {
     return (
       <View>
         <Text>{this.state.title}</Text>
-        {this.state.page == 'home' && <Home myLocation={this.saveLocationToState.bind(this)} />}
+        {this.state.page == 'home' && <Home myLocation={this.saveLocationToState.bind(this)} textnya='Dari induk' page={this.pindahHalaman.bind(this)}/>}
         {this.state.page == 'results' && <Results page={this.pindahHalaman.bind(this)}/>}
       </View>
     );
