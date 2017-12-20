@@ -4,6 +4,17 @@ import GetMyLocation from './GetMyLocation.js'
 import AddLocation from './AddLocation.js'
 
 export default class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      page: 'home',
+      title: 'App Malam Ini',
+      myLocation:{}
+    };
+  }
+
   goToResults() {
     this.props.page()
   }
@@ -12,9 +23,9 @@ export default class Home extends React.Component {
     console.log(dataTextInputYangTadi)
   }
 
-  saveLocationToState(data) {
-        this.setState({myLocation: data})
-    }
+  saveToAppState(location) {
+    this.props.myLocation(location)
+}
 
   render() {
     return (
