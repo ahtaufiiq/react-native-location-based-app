@@ -39,13 +39,13 @@ export default class GetMyLocation extends React.Component {
         this.setState({
             lat: location.coords.latitude,
             long: location.coords.longitude
-        });
-        passMyLocationToParent()
+        }, ()passMyLocationToParent());
     };
 
 //    menambahkan fungsi untuk memindahkan data dari GetMyLocation.js ke Home.js
     passMyLocationToParent() {
-        this.props.myLocation(this.state)
+      console.log('halo from pass')
+      this.props.myLocation(this.state)
     }
 
   render() {
@@ -55,10 +55,10 @@ export default class GetMyLocation extends React.Component {
           onPress={this.getLocationAsync.bind(this)}
           title='Get My Loc'
         />
-        <Text style={{flexDirection:'column'}}>{this.state.name}</Text>
-        <View style={{flexDirection:'row'}}>
-          <Text style={{flex:1}}>Latitude: {this.state.lat}</Text>
-          <Text style={{flex:1}}>Longitude: {this.state.long}</Text>
+        <View>
+          <Text>{this.state.name}</Text>
+          <Text>Latitude: {this.state.lat}</Text>
+          <Text>Longitude: {this.state.long}</Text>
         </View>
       </View>
     );
